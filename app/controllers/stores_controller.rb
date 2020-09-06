@@ -22,6 +22,7 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
+    @category = Category.new(store_id:@store.id)
   end
 
   private
