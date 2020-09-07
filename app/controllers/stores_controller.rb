@@ -1,6 +1,10 @@
 class StoresController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :new, :create]
 
+  def index
+    @stores = Store.all
+  end
+
   def new
     @store = Store.new
   end
@@ -21,6 +25,7 @@ class StoresController < ApplicationController
   end
 
   def show
+    @logged_in_user = current_user
     @store = Store.find(params[:id])
     @category = Category.new(store_id:@store.id)
   end

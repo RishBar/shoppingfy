@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   private
 
   # Confirms a logged-in emcee.
-  def logged_in_user
+  def P_in_user
     unless logged_in?
       flash[:danger] = "what the hell bro, log in."
       redirect_to '/login'

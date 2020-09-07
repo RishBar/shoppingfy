@@ -14,4 +14,11 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "log in first!"
+      redirect_to '/login'
+    end
+  end
+
 end

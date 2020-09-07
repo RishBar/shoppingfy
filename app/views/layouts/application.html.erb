@@ -13,10 +13,12 @@
   <header class="navbar navbar-fixed-top navbar-inverse navbar-flex">
   <% if !current_user %>
     <a class="nav-link" href="/users/new">Create Account</a>
-    <a class="nav-link" href="/login">Login</a>
+    <a class="nav-link" href="/login">Login as Admin</a>
+    <a class="nav-link" href="/stores">Browse Stores</a>
   <% else %>
   <a href="/users">My Profile</a>
     <a href="/stores/new">Create Store</a>
+    <a class="nav-link" href="/stores">Browse Stores</a>
     <a href="/logout">Logout</a>
   <% end %>
   </header>

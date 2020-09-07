@@ -1,5 +1,5 @@
 <h2>New Product</h2>
-
+<h3><%= @store.name %></h3>
 <%= form_with(model: @product, url: store_category_products_path(@category.id), method: 'post', local: true) do |form| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">

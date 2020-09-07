@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :logged_in_user
 
   def show
   end
@@ -6,20 +7,29 @@ class ProductsController < ApplicationController
   def new 
     @product = Product.new
     @category = Category.find(params[:category_id])
+    @store = Store.find(params[:store_id])
+    if !current_user.stores.include?(@store)
+      redirect_to '/login'
+    end
   end
 
-  def create 
+  def create
+    @store = Store.find(params[:store_id])
     @category = Category.find(params[:category_id])
     @product = @category.products.build(product_params)
-    if !@product.save
-      redirect_to '/new'
-    else 
-      @product_category_join = ProductsCategoriesJoin.create(product_id:@product.id, category_id:@category.id)
-      if !@product_category_join.save
-      redirect_to '/new'
+    if current_user.stores.include?(@store)
+      if !@product.save
+        redirect_to '/new'
       else 
-        redirect_to '/users'
+        @product_category_join = ProductsCategoriesJoin.create(product_id:@product.id, category_id:@category.id)
+        if !@product_category_join.save
+        redirect_to '/new'
+        else 
+          redirect_to '/users'
+        end
       end
+    else 
+      redirect_to '/login'
     end
   end
 

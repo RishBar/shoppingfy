@@ -1,7 +1,11 @@
 <h1><%= @store.name %></h1>
 <h2>Categories</h2>
 <% for category in @store.categories %>
-  <h3><%= category.name %> <%= link_to "add product", new_store_category_product_path(@store, category) %> </h3>
+  <h3><%= category.name %> 
+  <% if @logged_in_user.stores.include?(@store) %>
+    <%= link_to "add product", new_store_category_product_path(@store, category) %> 
+  <% end %>
+  </h3>
   <% if !category.products.empty? %>
     <% for product in category.products %>
       <h4><%= product.name %>, <%= product.description %>, <%= product.quantity %>, <%= product.price_cents %></h4>
@@ -9,28 +13,29 @@
   <% end %>
 <% end %>
 
+<% if @logged_in_user.stores.include?(@store) %>
+  <h2>Create Category</h2>
 
-<h2>Create Category</h2>
+  <%= form_with(model: @category, url: store_categories_path(@store.id), method: 'post', local: true) do |form| %>
+    <% if @category.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-<%= form_with(model: @category, url: store_categories_path(@store.id), method: 'post', local: true) do |form| %>
-  <% if @category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+        <ul>
+          <% @category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-        <% @category.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
