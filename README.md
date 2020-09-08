@@ -6,11 +6,12 @@
 3. Run `bundle install` to install dependencies
 4. Run `rails s` to start the server
 
-* System dependencies
+## System dependencies
 - bcrypt version 3.1.13
 - bootstrap-sass version 3.4.1
 - sassc-rails version >= 2.1.0
 - jquery-rails
 
-
+## Picture of database model
+!["URLs page"](https://github.com/RishBar/shoppingfy/blob/master/docs/shoppingfy-model.png?raw=true)
 
