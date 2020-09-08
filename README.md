@@ -52,7 +52,7 @@ end
 
 This allowed me to use the url parameter `params[:store_id]` to seperate my cart based on the store_id, so that the carts would not display all the products you have added, just the one for the particular store you are looking at. 
 
-At the moment, I have not implemented the functionality for actually simulating an order, I am thinking about signing up for a stripe account and using stripe's api in my app. Hopefully I can get this done before the initial screening for the Shopify internship.
+At the moment, I have not implemented the functionality for actually simulating an order, I am thinking about signing up for a stripe account and using stripe's api in my app. Hopefully I can get this done before the initial screening for the Shopify internship. I also wish to style the app more with bootstrap.
 
 ## Picture of database model
 !["URLs page"](https://github.com/RishBar/shoppingfy/blob/master/docs/shoppingfy-model.png?raw=true)
