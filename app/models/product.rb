@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  belongs_to :store
   has_many :products_categories_joins
   has_many :categories, through: :products_categories_joins
   has_many :orders_products_joins

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_212414) do
+ActiveRecord::Schema.define(version: 2020_09_08_004540) do
 
   create_table "categories", force: :cascade do |t|
     t.integer "store_id", null: false
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2020_08_27_212414) do
     t.integer "price_cents"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "store_id", null: false
+    t.index ["store_id"], name: "index_products_on_store_id"
   end
 
   create_table "products_categories_joins", force: :cascade do |t|
@@ -74,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_212414) do
   add_foreign_key "categories", "stores"
   add_foreign_key "orders_products_joins", "orders"
   add_foreign_key "orders_products_joins", "products"
+  add_foreign_key "products", "stores"
   add_foreign_key "products_categories_joins", "categories"
   add_foreign_key "products_categories_joins", "products"
   add_foreign_key "stores", "users"

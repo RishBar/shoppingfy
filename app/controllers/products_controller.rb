@@ -17,15 +17,16 @@ class ProductsController < ApplicationController
     @store = Store.find(params[:store_id])
     @category = Category.find(params[:category_id])
     @product = @category.products.build(product_params)
+    @store.products << @product
     if current_user.stores.include?(@store)
       if !@product.save
-        redirect_to '/new'
+        redirect_back fallback_location: root_path
       else 
         @product_category_join = ProductsCategoriesJoin.create(product_id:@product.id, category_id:@category.id)
         if !@product_category_join.save
-        redirect_to '/new'
+          redirect_back fallback_location: root_path
         else 
-          redirect_to '/users'
+          redirect_to @store
         end
       end
     else 
