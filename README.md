@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
+## Setup
+1. install ruby version 2.7.1
+2. install rails version 6.0.3.2
+3. Run `bundle install` to install dependencies
+4. Run `rails s` to start the server
 
 * System dependencies
+- bcrypt version 3.1.13
+- bootstrap-sass version 3.4.1
+- sassc-rails version >= 2.1.0
+- jquery-rails
 
-* Configuration
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
