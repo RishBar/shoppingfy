@@ -28,6 +28,10 @@ class StoresController < ApplicationController
     @logged_in_user = current_user
     @store = Store.find(params[:id])
     @category = Category.new(store_id:@store.id)
+    @cart_size = 0
+    for product in enhanced_cart(@store)
+      @cart_size += product[:quantity].to_i
+    end
   end
 
   private

@@ -29,10 +29,10 @@
             <%= button_to add_item_store_cart_path(store_id: @store.id, product_id: item[:product].id), class: 'btn btn-xs btn-success' do %> + <% end %>
           </td>
           <td>
-          <%= item[:product].price_cents / 100 %>
+            <%= "$" + number_with_precision(item[:product].price_cents.to_f / 100, precision:2) %>
           </td>
           <td>
-            <%= item[:product].price_cents * item[:quantity] / 100 %>
+            <%= "$" + number_with_precision(item[:product].price_cents.to_f * item[:quantity] / 100, precision:2) %>
           </td>
         </tr>
 
@@ -44,7 +44,7 @@
           TOTAL:
         </th>
         <th>
-          <%= cart_subtotal_cents(@store) / 100.0 %>
+          <%= "$" + number_with_precision(cart_subtotal_cents(@store) / 100.0, precision:2) %>
         </th>
       </tr>
     </tfoot>

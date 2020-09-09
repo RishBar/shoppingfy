@@ -1,7 +1,7 @@
 <div class="name-cart">
   <h1><%= @store.name %></h1>
   <%= button_to store_cart_path(store_id: @store.id), class: 'btn btn-primary' , method: :get do %>
-  <%= "go to cart" %>
+  <%= "My cart (" + @cart_size.to_s + ")" %>
   <% end %>
   <% if @logged_in_user && @logged_in_user.stores.include?(@store) %>
     <div class="cat-form">

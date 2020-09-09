@@ -17,12 +17,6 @@
    padding-top: 75px;
  }
 
- .navbar-flex {
-  display: flex;
-  justify-content: space-between;
- }
-
-
  .products {
   display:         flex;
   flex-direction:  row;
@@ -130,7 +124,7 @@
   justify-content: space-around;
 }
 
-.my-navbar a {
+.nav-link {
   padding-top: 12px;
   color: white;
 }
@@ -138,3 +132,8 @@
 .logo {
   padding-top: 10px;
 }
+
+.navbar-flex {
+  display: flex;
+  justify-content: space-between;
+ }
