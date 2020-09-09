@@ -10,20 +10,15 @@
   </head>
 
   <body>
-  <header class="navbar navbar-fixed-top navbar-inverse navbar-flex">
+  <header class="my-navbar navbar navbar-light navbar-fixed-top navbar-inverse navbar-flex">
   <% if !current_user %>
+    <%= image_tag("shoppingfy1.png", width:"10%", height:"100%", class:"logo") %>    
     <a class="nav-link" href="/users/new">Create Account</a>
     <a class="nav-link" href="/login">Login as Admin</a>
     <a class="nav-link" href="/stores">Browse Stores</a>
-    <% if false %>
-      <li>
-        <%= link_to store_cart_path do %>
-          <%= "My cart" %> My Cart (<%= cart.size - 1 %>)
-        <% end %>
-      </li>
-    <% end %>
   <% else %>
-  <a href="/users">My Profile</a>
+    <%= image_tag("shoppingfy1.png", width:"10%", height:"100%", class:"logo") %>     
+    <a href="/users">My Profile</a>
     <a href="/stores/new">Create Store</a>
     <a class="nav-link" href="/stores">Browse Stores</a>
     <% if false %>

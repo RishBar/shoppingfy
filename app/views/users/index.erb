@@ -1,3 +1,13 @@
-<h1><%= @user.name %>, your stores!</h1>
-
-<%= render @stores %>
+<h1 class="greeting"><%= @user.name %>, here are your stores!</h1>
+<div class="your-stores">
+  <% for store in @stores %>
+      <div class="your-store">
+        <h3><%= link_to store.name, store %></h3>
+        <% for category in store.categories %>
+          <h4><%= category.name %></h4>
+          <li>Number of products: <%= category.products.count %></li>
+        <% end %>
+        <h4>Total Products: <%= store.products.count %></h4>
+      </div>
+  <% end %>
+</div>

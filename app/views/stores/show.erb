@@ -1,44 +1,58 @@
-<h1><%= @store.name %></h1>
-<h2>Categories</h2>
-<% for category in @store.categories %>
-  <h3><%= category.name %> 
+<div class="name-cart">
+  <h1><%= @store.name %></h1>
+  <%= button_to store_cart_path(store_id: @store.id), class: 'btn btn-primary' , method: :get do %>
+  <%= "go to cart" %>
+  <% end %>
   <% if @logged_in_user && @logged_in_user.stores.include?(@store) %>
-    <%= link_to "add product", new_store_category_product_path(@store, category) %> 
-  <% end %>
-  </h3>
-  <% if !category.products.empty? %>
-    <% for product in category.products %>
-      <h4><%= product.name %>, <%= product.description %>, <%= product.quantity %>, <%= product.price_cents %></h4>
-      <%= button_to add_item_store_cart_path(store_id: @store.id, product_id: product.id), class: 'btn btn-primary' , method: :post do %>
-      <%= "add" %>
-    <% end %>
-    <% end %>
-  <% end %>
+    <div class="cat-form">
+      <h2>Create Category</h2>
+
+      <%= form_with(model: @category, url: store_categories_path(@store.id), method: 'post', local: true) do |form| %>
+        <% if @category.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+            <ul>
+              <% @category.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= form.label :name %>
+          <%= form.text_field :name %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
+    </div>
 <% end %>
-
-<% if @logged_in_user && @logged_in_user.stores.include?(@store) %>
-  <h2>Create Category</h2>
-
-  <%= form_with(model: @category, url: store_categories_path(@store.id), method: 'post', local: true) do |form| %>
-    <% if @category.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
-        <ul>
-          <% @category.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
+</div>
+<% for category in @store.categories %>
+  <div class="jumbotron">
+    <h3 class="cat-name"><%= category.name %> 
+    <% if @logged_in_user && @logged_in_user.stores.include?(@store) %>
+      <%= link_to "add product", new_store_category_product_path(@store, category) %> 
     <% end %>
-
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
+    </h3>
+    <div class="products">
+      <% if !category.products.empty? %>
+        <% for product in category.products %>
+          <div class="product">
+            <h4><%= product.name %></h4>
+            <h4><%= product.description %></h4>
+            <h4>Quantity: <%= product.quantity %></h4>
+            <h4>$ <%= number_with_precision(product.price_cents.to_f / 100, precision:2)%></h4>
+            <%= button_to add_item_store_cart_path(store_id: @store.id, product_id: product.id), class: 'btn btn-primary' , method: :post do %>
+            <%= "add to cart" %>
+          </div>
+        <% end %>
+        <% end %>
+      <% end %>
     </div>
-
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-  <% end %>
+  </div>
 <% end %>
