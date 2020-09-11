@@ -125,11 +125,14 @@
 }
 
 .nav-link {
+  display: inline-block;
   padding-top: 12px;
   color: white;
 }
 
 .logo {
+  width: 100px;
+  height: 35px;
   padding-top: 10px;
 }
 

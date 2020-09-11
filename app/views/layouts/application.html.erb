@@ -12,16 +12,14 @@
   <body>
   <header class="my-navbar navbar navbar-light navbar-fixed-top navbar-inverse navbar-flex">
     <% if !current_user %>
-      <%= image_tag("shoppingfy1.png", width:"10%", height:"100%", class:"logo") %>
+      <a href="/stores"><img class="logo"  src="/assets/shoppingfy1.png" alt="logo"></a>
       <a class="nav-link" href="/users/new">Create Account</a>
       <a class="nav-link" href="/login">Login as Admin</a>
-      <a class="nav-link" href="/stores">Browse Stores</a>
     <% else %>
-      <%= image_tag("shoppingfy1.png", width:"10%", height:"100%", class:"logo") %>     
-      <a href="/users">My Profile</a>
-      <a href="/stores/new">Create Store</a>
-      <a class="nav-link" href="/stores">Browse Stores</a>
-      <a href="/logout">Logout</a>
+        <a href="/stores"><img class="logo" src="/assets/shoppingfy1.png" alt="logo"></a>  
+        <a class="nav-link" href="/users">My Profile</a>
+        <a class="nav-link" href="/stores/new">Create Store</a>
+        <a class="nav-link" href="/logout">Logout</a>
     <% end %>
   </header>
   <div class="move-da-nav-bar">
