@@ -12,11 +12,11 @@
   <body>
   <header class="my-navbar navbar navbar-light navbar-fixed-top navbar-inverse navbar-flex">
     <% if !current_user %>
-      <a href="/stores"><img class="logo"  src="/assets/shoppingfy1.png" alt="logo"></a>
+      <%= link_to image_tag(asset_path("shoppingfy1.png"), class: "logo"), "/stores" %>
       <a class="nav-link" href="/users/new">Create Account</a>
       <a class="nav-link" href="/login">Login as Admin</a>
     <% else %>
-        <a href="/stores"><img class="logo" src="/assets/shoppingfy1.png" alt="logo"></a>  
+        <%= link_to image_tag(asset_path("shoppingfy1.png"), class: "logo"), "/stores" %>
         <a class="nav-link" href="/users">My Profile</a>
         <a class="nav-link" href="/stores/new">Create Store</a>
         <a class="nav-link" href="/logout">Logout</a>
