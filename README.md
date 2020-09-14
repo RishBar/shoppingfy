@@ -1,5 +1,7 @@
 # README
 
+This website has been deployed to https://shoppingfy.herokuapp.com/
+
 ## Setup
 1. install ruby version 2.7.1
 2. install rails version 6.0.3.2
