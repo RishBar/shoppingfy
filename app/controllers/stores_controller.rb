@@ -25,7 +25,6 @@ class StoresController < ApplicationController
   end
 
   def show
-    @noseRing = Product.find(5)
     @logged_in_user = current_user
     @store = Store.find(params[:id])
     @category = Category.new(store_id:@store.id)
