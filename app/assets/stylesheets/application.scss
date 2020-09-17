@@ -25,7 +25,8 @@
 }
 
 .product {
-  max-width: 260px;
+  width: 260px;
+  height: 450px;
   position:  relative;
   border:        1px solid #ccc;
   border-radius: 5px;
@@ -33,6 +34,10 @@
   padding-bottom: 80px;
   margin-top:    20px;
   background-color: white;
+}
+
+.product-picture {
+  width: 100%;
 }
 
 .name-cart {
@@ -58,6 +63,15 @@
 
 .product-form .name {
   padding-left: 37px;
+}
+
+.picture {
+  display: flex;
+  justify-content: center;
+  padding-left: 140px;
+}
+.upload-button {
+  padding-left: 5px;
 }
 
 .product-form .quantity {
@@ -103,17 +117,14 @@
 }
 
 .your-store {
-    // flex:      1;
-    max-width: 260px;
-    // so that footer within can be positioned absolutely
+    width: 260px;
+    height: 450px;
     position:  relative;
-  
     border:        1px solid #ccc;
     border-radius: 5px;
     padding:       15px;
     padding-bottom: 80px;
     margin-top:    20px;
-    // margin:        10px;
     background-color: white;
 }
 

@@ -43,6 +43,9 @@
       <% if !category.products.empty? %>
         <% for product in category.products %>
           <div class="product">
+            <% if product.picture.attached? %>
+              <%= image_tag(url_for(product.picture), class:"product-picture")%>
+            <% end %>
             <h4><%= product.name %></h4>
             <h4><%= product.description %></h4>
             <h4>Quantity: <%= product.quantity %></h4>
@@ -56,3 +59,4 @@
     </div>
   </div>
 <% end %>
+
