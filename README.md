@@ -14,6 +14,9 @@ This website has been deployed to https://shoppingfy.herokuapp.com/
 - sassc-rails version >= 2.1.0
 - jquery-rails
 
+## Testing Environment
+The tests were made with rails default testing environment, minitest. To run all tests run `rake test` in the command line.
+
 ## Challenges faced
 One problem that I faced that was challenging was how when a product is added, I wanted to build that product so that it is joined to the categories model in a many to many relationship. In order to do this I decided to create a join table between products and categories and have my resources for products nested within the resources for categories. This way I could find the category_id by using rails' built in params helper `params[:category_id]` and then find the specific category by writing 
 
