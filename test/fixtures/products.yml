@@ -1,12 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  store: one
   description: MyText
   name: MyString
   quantity: 1
   price_cents: 1
 
 two:
+  store: two
   description: MyText
   name: MyString
   quantity: 1

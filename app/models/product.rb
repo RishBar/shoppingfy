@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   has_many :orders, through: :orders_products_joins
   has_one_attached :picture
   validates :name, presence: true
-  validates :quantity, presence: true
-  validates :price_cents, presence: true
+  validates :price_cents, presence: true, numericality: true
+  validates :quantity, presence: true, numericality: { only_integer: true }
   validates :description, presence: true
 end

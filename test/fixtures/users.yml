@@ -4,8 +4,10 @@ one:
   name: MyString
   email: MyString
   password_digest: MyString
+  # user_id 980190962
 
 two:
   name: MyString
   email: MyString
   password_digest: MyString
+  # user_id 298486374
